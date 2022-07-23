@@ -26,6 +26,19 @@ def arnaldo_burgers(orders_list):
     return burgers_quantity
 
 
+def joao_no_orders(orders_list):
+    full_menu = set()
+    joao_orders = set()
+
+    for name, order, day in orders_list:
+        full_menu.add(order)
+
+        if name == 'joao':
+            joao_orders.add(order)
+
+    return full_menu - joao_orders
+
+
 def analyze_log(path_to_file):
     csv_file = path_to_file.split(".")
 
@@ -39,10 +52,12 @@ def analyze_log(path_to_file):
 
             maria = most_requested_meal_by_maria(orders_list)
             arnaldo = arnaldo_burgers(orders_list)
+            joao_never_requested = joao_no_orders(orders_list)
 
         result = [
             f"{maria}\n",
             f"{arnaldo}\n",
+            f"{joao_never_requested}",
         ]
 
         with open('data/mkt_campaign.txt', 'w') as file:
