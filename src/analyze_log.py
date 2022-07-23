@@ -16,6 +16,16 @@ def most_requested_meal_by_maria(orders_list):
     return favorite_plate
 
 
+def arnaldo_burgers(orders_list):
+    burgers_quantity = 0
+
+    for name, order, day in orders_list:
+        if name == 'arnaldo' and order == 'hamburguer':
+            burgers_quantity += 1
+
+    return burgers_quantity
+
+
 def analyze_log(path_to_file):
     csv_file = path_to_file.split(".")
 
@@ -28,9 +38,11 @@ def analyze_log(path_to_file):
             orders_list = [order for order in file_reader]
 
             maria = most_requested_meal_by_maria(orders_list)
+            arnaldo = arnaldo_burgers(orders_list)
 
         result = [
             f"{maria}\n",
+            f"{arnaldo}\n",
         ]
 
         with open('data/mkt_campaign.txt', 'w') as file:
