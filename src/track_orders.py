@@ -1,6 +1,3 @@
-from collections import defaultdict
-
-
 class TrackOrders:
     def __init__(self):
         self.__orders_list = list()
