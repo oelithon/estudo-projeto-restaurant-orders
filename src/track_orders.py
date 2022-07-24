@@ -1,7 +1,7 @@
 class TrackOrders:
     def __init__(self):
         self.__orders_list = list()
-        
+
     def __len__(self):
         return len(self.__orders_list)
 
