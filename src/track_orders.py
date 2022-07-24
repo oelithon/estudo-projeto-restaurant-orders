@@ -15,7 +15,7 @@ class TrackOrders:
             if name == customer:
                 if order not in orders_count:
                     orders_count[order] = 1
-                
+
                 orders_count[order] += 1
 
         return max(orders_count, key=orders_count.get)
