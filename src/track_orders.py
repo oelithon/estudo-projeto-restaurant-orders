@@ -13,10 +13,8 @@ class TrackOrders:
 
         for name, order, _day in self.__orders_list:
             if name == customer:
-                if order not in orders_count:
-                    orders_count[order] = 1
-                else:
-                    orders_count[order] += 1
+                if order not in orders_count: orders_count[order] = 1
+                else: orders_count[order] += 1
 
         return max(orders_count, key=orders_count.get)
 
